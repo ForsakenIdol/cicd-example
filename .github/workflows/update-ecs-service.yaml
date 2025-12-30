@@ -17,9 +17,14 @@ jobs:
       - name: Verify AWS identity
         run: aws sts get-caller-identity
         # The next step is only useful if we are pushing our image to ECR.
-        # This becomes useless if we store our images in a public Docker registry.
+        # We would need to build and tag the artifact in this workflow to push it to ECR.
+        # The "Login to ECR" becomes useless if we store our images in a public Docker registry.
       - name: Login to ECR
         run: |
           aws ecr get-login-password --region ap-southeast-2 |
           docker login --username AWS --password-stdin 881197861415.dkr.ecr.ap-southeast-2.amazonaws.com
         # From hereonout, we can push our image to ECR and / or update the relevant ECS service.
+      - name: Force new deployment on the ECS service
+        run: |
+          aws ecs update-service --cluster WebsiteCluster --service httpd-practice-service \
+          --force-new-deployment
