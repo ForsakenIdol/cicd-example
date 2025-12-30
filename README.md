@@ -24,3 +24,13 @@ docker run -p 8080:80 --volume $(pwd)/html:/usr/local/apache2/htdocs httpd:2.4-a
 ## GitHub Actions
 
 - When you pull the repository onto the runner with `actions/checkout@v4`, the working directory for the runner becomes the top-level directory of your repository, **minus** the `.github` folder.
+- Secrets like credentials or access tokens can be stored as repository secrets, then referenced in workflows via `env` for any given step. As an example, for a step that authenticates to Docker:
+
+```
+    - name: Authenticate to Docker
+      env:
+        TOKEN: ${{ secrets.docker_token }}
+      run: docker login -u forsakenidol -p $TOKEN
+```
+
+This requires that a secret be uploaded to the repository under the name `docker_token`.
