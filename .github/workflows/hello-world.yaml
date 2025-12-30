@@ -1,9 +1,9 @@
 name: Hello World!
 run-name: ${{ github.actor }} has created a Hello World workflow. That workflow is currently running.
 on:
-  - push
-branches:
-  - master
+  push:
+    branches:
+      - master
 jobs:
   say-hello:
     name: Do epic things (kind of)
