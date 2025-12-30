@@ -4,6 +4,8 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
     steps:
       - name: Make repository contents available on the runner
         uses: actions/checkout@v4
@@ -12,8 +14,6 @@ jobs:
         run: docker build -t forsakenidol/cicd-practice-httpd:latest .
 
       - name: Authenticate to Docker
-        strategy:
-         fail-fast: true
         with:
           TOKEN: ${{ secrets.docker_token }}
         run: docker login -u forsakenidol -p $TOKEN
