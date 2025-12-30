@@ -21,4 +21,6 @@ docker run -p 8080:80 --volume $(pwd)/html:/usr/local/apache2/htdocs httpd:2.4-a
 
 (The command above is a runtime mount, so any changes while the container is running WILL show up when you refresh.)
 
+## GitHub Actions
 
+- When you pull the repository onto the runner with `actions/checkout@v4`, the working directory for the runner becomes the top-level directory of your repository, **minus** the `.github` folder.

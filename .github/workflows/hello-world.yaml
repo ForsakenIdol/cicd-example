@@ -1,5 +1,5 @@
 name: Hello World!
-run-name: ${{ github.actor }} has created a Hello World workflow. That workflow is currently running.
+run-name: ${{ github.actor }}'s Hello World workflow is currently running.'
 on:
   push:
     branches:
@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Say hello!
-        run: echo "Hello World from $(uname -r)\! Current working directory is $(pwd)."
+        run: echo "Hello World from $(uname -r)! Current working directory is $(pwd)."
       
       - name: Print repository contents
-        run: echo "Repository contents below && $(tree)"
+        run: echo "Repository contents below. $(tree)"
