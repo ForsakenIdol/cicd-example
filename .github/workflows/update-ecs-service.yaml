@@ -1,10 +1,11 @@
-name: Deploy new image
+name: deploy-new-image
 on:
   workflow_run:
     workflows: [ "build-and-push" ]
     types: [ completed ]
 jobs:
   authenticate-to-aws:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Copnfigure AWS credentials

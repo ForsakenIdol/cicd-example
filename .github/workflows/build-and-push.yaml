@@ -1,4 +1,4 @@
-name: Build and Push
+name: build-and-push
 on:
   push:
     paths:
