@@ -18,8 +18,8 @@ jobs:
           TOKEN: ${{ secrets.docker_token }}
         run: docker login -u forsakenidol -p $TOKEN
       
-      - name: Logout from Docker for safety
-        run: docker logout
-      
       - name: Push the image
         run: docker push forsakenidol/cicd-practice-httpd:latest
+
+      - name: Logout from Docker for safety
+        run: docker logout
