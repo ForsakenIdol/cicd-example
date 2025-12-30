@@ -34,3 +34,13 @@ docker run -p 8080:80 --volume $(pwd)/html:/usr/local/apache2/htdocs httpd:2.4-a
 ```
 
 This requires that a secret be uploaded to the repository under the name `docker_token`.
+
+With GitHub Actions, you can:
+
+- Define workflows that depend on other workflows completing successfully.
+- Store repository-level or environment-level secrets and reference them in workflows.
+- Run checks on the repository and its contents, including any code tests.
+- Build and push Docker artifacts to DockerHub or ECR.
+- Leverage a suite of GitHub-managed actions for specific use cases (e.g. setting up credentials for AWS).
+
+Note that manual workflow approval is only available in environments, and for Free accounts, the repository must be public.
