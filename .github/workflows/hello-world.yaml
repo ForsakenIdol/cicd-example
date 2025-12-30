@@ -1,5 +1,5 @@
 name: Hello World!
-run-name: ${{ github.actor }}'s Hello World workflow'
+run-name: ${{ github.actor }}'s Hello World workflow
 on:
   push:
     branches:
