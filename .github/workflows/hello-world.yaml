@@ -1,0 +1,19 @@
+name: Hello World!
+run-name: ${{ github.actor }} has created a Hello World workflow. That workflow is currently running.
+on:
+  - push
+branches:
+  - master
+jobs:
+  say-hello:
+    name: Do epic things (kind of)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make repository contents available on the runner
+        uses: actions/checkout@v4
+      
+      - name: Say hello!
+        run: echo "Hello World from $(uname -r)! Current working directory: $(pwd)."
+      
+      - name: Print repository contents
+        run: echo "Repository contents: $(tree)"
