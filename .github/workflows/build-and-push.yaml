@@ -1,0 +1,22 @@
+name: Build and Push
+on:
+  - push
+strategy:
+  fail-fast: true
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make repository contents available on the runner
+        uses: actions/checkout@v4
+
+      - name: Build the image
+        run: docker build -t forsakenidol/cicd-practice-httpd:latest .
+
+      - name: Authenticate to Docker
+        with:
+          TOKEN: ${{ secrets.docker_token }}
+        run: docker login -u forsakenidol -p $TOKEN
+      
+      - name: Push the image
+        run: docker push forsakenidol/cicd-practice-httpd:latest
