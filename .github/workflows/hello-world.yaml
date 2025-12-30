@@ -16,4 +16,4 @@ jobs:
         run: echo "Hello World from $(uname -r)\! Current working directory is $(pwd)."
       
       - name: Print repository contents
-        run: echo "Repository contents: $(tree)"
+        run: echo "Repository contents below && $(tree)"
