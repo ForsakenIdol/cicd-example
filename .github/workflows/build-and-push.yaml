@@ -14,7 +14,7 @@ jobs:
         run: docker build -t forsakenidol/cicd-practice-httpd:latest .
 
       - name: Authenticate to Docker
-        with:
+        secrets:
           TOKEN: ${{ secrets.docker_token }}
         run: docker login -u forsakenidol -p $TOKEN
       
