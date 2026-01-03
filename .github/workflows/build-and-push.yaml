@@ -12,8 +12,26 @@ jobs:
       - name: Make repository contents available on the runner
         uses: actions/checkout@v4
 
+      - name: Trivy Scan 1 - File System
+        uses: aquasecurity/trivy-action@v0.33.1
+        with:
+            scan-type: fs
+            scan-ref: '.'
+            format: 'table'
+            exit-code: '0' # Never fail the pipeline, regardless of what Trivy finds
+            severity: 'HIGH,CRITICAL'
+
       - name: Build the image
         run: docker build -t forsakenidol/cicd-practice-httpd:latest .
+
+      - name: Trivy Scan 2 - Container Image
+        uses: aquasecurity/trivy-action@v0.33.1
+        with:
+          scan-type: image
+          image: forsakenidol/cicd-practice-httpd:latest
+          format: 'table'
+          exit-code: '0'
+          severity: 'HIGH,CRITICAL'
 
       - name: Authenticate to Docker
         env:
