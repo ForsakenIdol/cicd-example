@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Trivy Scan 1 - File System
-        uses: aquasecurity/trivy-action@v0.33.1
+        uses: aquasecurity/trivy-action@0.33.1
         with:
             scan-type: fs
             scan-ref: '.'
@@ -25,7 +25,7 @@ jobs:
         run: docker build -t forsakenidol/cicd-practice-httpd:latest .
 
       - name: Trivy Scan 2 - Container Image
-        uses: aquasecurity/trivy-action@v0.33.1
+        uses: aquasecurity/trivy-action@0.33.1
         with:
           scan-type: image
           image: forsakenidol/cicd-practice-httpd:latest
