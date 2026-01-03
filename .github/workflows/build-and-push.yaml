@@ -28,7 +28,7 @@ jobs:
         uses: aquasecurity/trivy-action@0.33.1
         with:
           scan-type: image
-          image: forsakenidol/cicd-practice-httpd:latest
+          image-ref: forsakenidol/cicd-practice-httpd:latest
           format: 'table'
           exit-code: '0'
           severity: 'HIGH,CRITICAL'
