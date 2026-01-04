@@ -44,3 +44,8 @@ With GitHub Actions, you can:
 - Leverage a suite of GitHub-managed actions for specific use cases (e.g. setting up credentials for AWS).
 
 Note that manual workflow approval is only available in environments, and for Free accounts, the repository must be public.
+
+## Lab 2 Checks
+
+- [Done] Trivy repository and container scanning
+- Gate deployment of the ECS service behind manual approval for the environment.

@@ -10,6 +10,8 @@ jobs:
   authenticate-to-aws:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    environment:
+      name: production
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v5.1.1
