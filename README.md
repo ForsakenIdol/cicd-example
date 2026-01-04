@@ -48,4 +48,4 @@ Note that manual workflow approval is only available in environments, and for Fr
 ## Lab 2 Checks
 
 - [Done] Trivy repository and container scanning
-- Gate deployment of the ECS service behind manual approval for the environment.
+- [Done] Gate deployment of the ECS service behind manual approval for the environment.
