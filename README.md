@@ -1,6 +1,6 @@
-# CI/CD Practice Repository
+# CI/CD Example Repository
 
-We'll deploy a sample `httpd` server and integrate a CI/CD deployment pipeline, starting with GitHub Actions.
+We'll demonstrate with a sample `httpd` server that integrates with a CI/CD deployment pipeline on GitHub Actions.
 
 
 ## httpd Notes
