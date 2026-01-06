@@ -5,7 +5,7 @@ on:
     types: [ completed ]
 
 # For Free GitHub accounts, gating job execution behind environment approval is not supported for private repositories.
-# This repository needs to be public for that. We'll leave it for now.
+# This repository needs to be public for that.
 jobs:
   authenticate-to-aws:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
